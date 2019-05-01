@@ -1,0 +1,11 @@
+name: Lock_and_Key
+version: 0.1.0
+main: ca.howz1t.lock_and_key.Main
+api-version: 1.14
+commands:
+  key:
+    description: Gives the player a key
+    usage: /key
+  share_key:
+    description: Gives the player a shareable key
+    usage: /share_key
