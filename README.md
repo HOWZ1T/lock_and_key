@@ -47,7 +47,6 @@ Then just drag and drop that jar file into your spigot servers plugin folder.
 - Grindstone
 - Jukebox
 - Trapped Chest
-- Doors
 - Enchanting Table
 - Fence Gates
 - Trapdoors

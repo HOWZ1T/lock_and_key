@@ -36,15 +36,15 @@ public class ShareKey implements Item {
 
         this.meta.setDisplayName(displayName);
         this.meta.setLore(lore);
-        this.meta.addEnchant(Enchantment.KNOCKBACK, 1, true);
+        this.meta.addEnchant(Enchantment.ARROW_INFINITE, 1, true);
         this.item.setItemMeta(meta);
 
-        this.nskey = new NamespacedKey(plugin, ShareKey.key);
+        /*this.nskey = new NamespacedKey(plugin, ShareKey.key);
         this.recipe = new ShapelessRecipe(this.nskey, item);
         this.recipe.addIngredient(Material.TRIPWIRE_HOOK);
         this.recipe.addIngredient(Material.GOLD_NUGGET);
 
-        Bukkit.getServer().addRecipe(this.recipe);
+        Bukkit.getServer().addRecipe(this.recipe);*/
     }
 
     public ItemStack getItemStack() {

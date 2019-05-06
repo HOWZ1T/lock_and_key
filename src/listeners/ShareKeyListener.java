@@ -15,11 +15,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.Door;
 import utils.Utils;
 
 import java.util.ArrayList;
@@ -46,6 +49,21 @@ public class ShareKeyListener implements Listener {
         }
 
         return false;
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onBlockPlaceEvent(BlockPlaceEvent event)
+    {
+        Player player = event.getPlayer();
+
+        ItemStack item = event.getItemInHand();
+        Utils.println(item.getItemMeta().getDisplayName());
+        Utils.println(ShareKey.displayName);
+        if (item.getItemMeta().getDisplayName().equals(ShareKey.displayName))
+        {
+            event.setCancelled(true);
+            player.sendMessage(Utils.chatCol(Utils.Colors.RED) + "Share Key cannot be placed.");
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)

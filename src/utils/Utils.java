@@ -33,14 +33,13 @@ public class Utils {
 
         private String val;
         Colors(String val)
-        {
-            this.val = val;
-        }
+        { this.val = val; }
 
         public String getVal()
         {
             return val;
         }
+        public String getRaw() { return (ChatColor.COLOR_CHAR + val.substring(1));}
     }
 
     public static Enchantment[] LEVEL_1_ENCHANTS = new Enchantment[]{

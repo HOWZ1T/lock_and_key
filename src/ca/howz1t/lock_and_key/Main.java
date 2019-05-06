@@ -3,6 +3,7 @@ package ca.howz1t.lock_and_key;
 import cmds.CommandKey;
 import cmds.CommandShareKey;
 import listeners.BreakListener;
+import listeners.CraftListener;
 import listeners.KeyListener;
 import listeners.ShareKeyListener;
 import managers.ItemManager;
@@ -10,7 +11,6 @@ import managers.LockManager;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.scheduler.BukkitTask;
 import tasks.SaveLocksTask;
 import utils.Utils;
 
@@ -74,6 +74,7 @@ public class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new KeyListener(lockManager), this);
         getServer().getPluginManager().registerEvents(new BreakListener(lockManager), this);
         getServer().getPluginManager().registerEvents(new ShareKeyListener(lockManager, itemManager), this);
+        getServer().getPluginManager().registerEvents(new CraftListener(), this);
 
         Utils.println("registering tasks...");
         BukkitScheduler scheduler = getServer().getScheduler();
@@ -110,5 +111,5 @@ public class Main extends JavaPlugin implements Listener {
         return this.locksPath;
     }
 
-    // TODO SHARING EFFECT / TODO LOCK REMOVER (CROWBAR FOR OWNER) :D
+    // TODO AUDIO FEEDBACK FOR LOCK SYSTEM ?
 }

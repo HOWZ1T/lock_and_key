@@ -15,11 +15,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.Door;
 import utils.Utils;
 
 public class KeyListener implements Listener {
@@ -44,13 +46,6 @@ public class KeyListener implements Listener {
             Material.GRINDSTONE,
             Material.JUKEBOX,
             Material.TRAPPED_CHEST,
-            Material.DARK_OAK_DOOR,
-            Material.ACACIA_DOOR,
-            Material.BIRCH_DOOR,
-            Material.IRON_DOOR,
-            Material.JUNGLE_DOOR,
-            Material.OAK_DOOR,
-            Material.SPRUCE_DOOR,
             Material.ENCHANTING_TABLE,
             Material.DARK_OAK_FENCE_GATE,
             Material.ACACIA_FENCE_GATE,
@@ -67,6 +62,23 @@ public class KeyListener implements Listener {
             Material.SPRUCE_TRAPDOOR,
             Material.LECTERN,
             Material.ENDER_CHEST,
+            Material.SHULKER_BOX,
+            Material.WHITE_SHULKER_BOX,
+            Material.ORANGE_SHULKER_BOX,
+            Material.MAGENTA_SHULKER_BOX,
+            Material.LIGHT_BLUE_SHULKER_BOX,
+            Material.YELLOW_SHULKER_BOX,
+            Material.LIME_SHULKER_BOX,
+            Material.PINK_SHULKER_BOX,
+            Material.GRAY_SHULKER_BOX,
+            Material.LIGHT_GRAY_SHULKER_BOX,
+            Material.CYAN_SHULKER_BOX,
+            Material.PURPLE_SHULKER_BOX,
+            Material.BLUE_SHULKER_BOX,
+            Material.BROWN_SHULKER_BOX,
+            Material.GREEN_SHULKER_BOX,
+            Material.RED_SHULKER_BOX,
+            Material.BLACK_SHULKER_BOX
     };
 
     private LockManager lockManager;
@@ -84,6 +96,23 @@ public class KeyListener implements Listener {
         }
 
         return false;
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onBlockPlace(BlockPlaceEvent event)
+    {
+        Player player = event.getPlayer();
+        ItemStack item = event.getItemInHand();
+        if (item != null)
+        {
+            Utils.println(item.getItemMeta().getDisplayName());
+            Utils.println(Key.displayName);
+            if (item.getItemMeta().getDisplayName().equals(Key.displayName))
+            {
+                event.setCancelled(true);
+                player.sendMessage(Utils.chatCol(Utils.Colors.RED) + "Key cannot be placed.");
+            }
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
