@@ -2,7 +2,7 @@
 ### A Minecraft 1.14 Spigot Plugin
 
 ## What does it do ? 
-It provides an signless ownership system for almost all interactable items excluding shulker boxes.
+It provides a signless ownership system for almost all interactable items excluding doors.
 
 ## How does it work ?
 Any supported block can be claimed by using a new item called the key and shift left clickling with it on the block you wish to lock.
@@ -52,4 +52,5 @@ Then just drag and drop that jar file into your spigot servers plugin folder.
 - Trapdoors
 - Lectern
 - Ender Chest
+- Shulker Boxes
 
