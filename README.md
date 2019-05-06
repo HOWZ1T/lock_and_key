@@ -1,6 +1,8 @@
 # Lock and Key
 ### A Minecraft 1.14 Spigot Plugin
 
+# Latest Version: 0.1.2
+
 ## What does it do ? 
 It provides a signless ownership system for almost all interactable items excluding doors.
 
